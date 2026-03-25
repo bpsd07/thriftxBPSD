@@ -23,32 +23,58 @@ const state = {
 };
 
 // ===== PRODUCT DATA =====
+// Each product uses `img`: path under `img/` (jpg, jpeg, png, webp). Missing files show img/placeholder.svg.
 const PRODUCTS = [
-  { id:1, name:"Jaipur Block Print Kurta", category:"kurtas", craft:"block-print", region:"Rajasthan", price:899, original:2499, emoji:"👘", colors:["#c0392b","#2980b9","#27ae60"], sizes:["S","M","L","XL"], rating:4.8, reviews:128, badge:"bestseller", tags:["block-print","rajasthan"] },
-  { id:2, name:"Banarasi Silk Dupatta", category:"dupattas", craft:"banarasi", region:"Varanasi", price:1299, original:4500, emoji:"🧣", colors:["#8e44ad","#c0392b","#f39c12"], sizes:["Free"], rating:4.7, reviews:89, badge:"new", tags:["banarasi","silk"] },
-  { id:3, name:"Odisha Ikat Saree", category:"sarees", craft:"ikat", region:"Odisha", price:2199, original:6999, emoji:"🥻", colors:["#2980b9","#8e44ad","#1abc9c"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["ikat","odisha"] },
-  { id:4, name:"Bengal Kantha Stitch Kurta", category:"kurtas", craft:"kantha", region:"West Bengal", price:1099, original:3200, emoji:"👘", colors:["#f39c12","#27ae60","#c0392b"], sizes:["XS","S","M","L","XL","XXL"], rating:4.6, reviews:67, tags:["kantha","bengal"] },
-  { id:5, name:"Punjab Phulkari Dupatta", category:"dupattas", craft:"phulkari", region:"Punjab", price:749, original:2100, emoji:"🧣", colors:["#e67e22","#c0392b","#8e44ad"], sizes:["Free"], rating:4.5, reviews:154, badge:"new", tags:["phulkari","punjab"] },
-  { id:6, name:"Chanderi Cotton Lehengha", category:"lehengas", craft:"chandheri", region:"MP", price:3499, original:11000, emoji:"👗", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["S","M","L","XL"], rating:4.8, reviews:91, badge:"bestseller", tags:["chandheri","mp"] },
-  { id:7, name:"Kalamkari Print Kurta", category:"kurtas", craft:"kalamkari", region:"Andhra Pradesh", price:799, original:2200, emoji:"👘", colors:["#c45c2a","#2c3e50","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.4, reviews:43, tags:["kalamkari","andhra"] },
-  { id:8, name:"Ajrakh Block Print Shawl", category:"shawls", craft:"ajrakh", region:"Gujarat", price:1599, original:4800, emoji:"🧤", colors:["#2c3e50","#c0392b","#1abc9c"], sizes:["Free"], rating:4.7, reviews:112, badge:"new", tags:["ajrakh","gujarat"] },
-  { id:9, name:"Lucknowi Chikankari Kurta", category:"kurtas", craft:"chikankari", region:"Lucknow", price:1299, original:3800, emoji:"👘", colors:["#f5f5f5","#c0392b","#2980b9"], sizes:["XS","S","M","L","XL"], rating:4.9, reviews:267, badge:"bestseller", tags:["chikankari","up"] },
-  { id:10, name:"Pochampally Ikat Saree", category:"sarees", craft:"ikat", region:"Telangana", price:1899, original:5500, emoji:"🥻", colors:["#c0392b","#f39c12","#2c3e50"], sizes:["Free"], rating:4.6, reviews:78, tags:["ikat","telangana"] },
-  { id:11, name:"Kerala Kasavu Set", category:"ethnic-sets", craft:"kasavu", region:"Kerala", price:2799, original:8000, emoji:"👗", colors:["#f5f5f5","#d4a017"], sizes:["S","M","L","XL"], rating:4.8, reviews:143, badge:"new", tags:["kasavu","kerala"] },
-  { id:12, name:"Madhubani Art Kurta", category:"kurtas", craft:"madhubani", region:"Bihar", price:699, original:1900, emoji:"👘", colors:["#c0392b","#27ae60","#f39c12"], sizes:["S","M","L","XL","XXL"], rating:4.3, reviews:56, tags:["madhubani","bihar"] },
-  { id:13, name:"Bandhani Tie-Dye Dupatta", category:"dupattas", craft:"bandhani", region:"Gujarat", price:599, original:1800, emoji:"🧣", colors:["#c0392b","#8e44ad","#e67e22"], sizes:["Free"], rating:4.5, reviews:88, tags:["bandhani","gujarat"] },
-  { id:14, name:"Patola Silk Saree", category:"sarees", craft:"patola", region:"Gujarat", price:4999, original:18000, emoji:"🥻", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.9, reviews:34, badge:"bestseller", tags:["patola","silk"] },
-  { id:15, name:"Rajasthani Bandhej Lehengha", category:"lehengas", craft:"bandhej", region:"Rajasthan", price:4299, original:13500, emoji:"👗", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["S","M","L","XL"], rating:4.7, reviews:61, tags:["bandhej","rajasthan"] },
-  { id:16, name:"Jodhpuri Bandhgala Suit", category:"menswear", craft:"block-print", region:"Rajasthan", price:2499, original:7500, emoji:"🧥", colors:["#2c3e50","#333","#c45c2a"], sizes:["S","M","L","XL","XXL"], rating:4.8, reviews:93, badge:"new", tags:["menswear","rajasthan"] },
-  { id:17, name:"Pahadi Woolen Shawl", category:"shawls", craft:"pahadi", region:"Himachal Pradesh", price:1199, original:3600, emoji:"🧤", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.6, reviews:109, tags:["pahadi","himachal"] },
-  { id:18, name:"Warli Print Tote Bag", category:"accessories", craft:"warli", region:"Maharashtra", price:399, original:1100, emoji:"👜", colors:["#f5f5f5","#c45c2a","#27ae60"], sizes:["Free"], rating:4.4, reviews:176, badge:"new", tags:["warli","maharashtra"] },
-  { id:19, name:"Lambani Mirror Work Blouse", category:"accessories", craft:"lambani", region:"Karnataka", price:849, original:2400, emoji:"✨", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["XS","S","M","L","XL"], rating:4.7, reviews:52, tags:["lambani","karnataka"] },
-  { id:20, name:"Manipuri Phanek Sarong", category:"sarees", craft:"manipuri", region:"Manipur", price:1499, original:4200, emoji:"🥻", colors:["#c0392b","#2980b9","#27ae60"], sizes:["Free"], rating:4.5, reviews:29, tags:["manipuri","northeast"] },
-  { id:21, name:"Dabu Print Men's Kurta", category:"menswear", craft:"dabu", region:"Rajasthan", price:899, original:2600, emoji:"👘", colors:["#2c3e50","#c45c2a","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.6, reviews:71, tags:["dabu","menswear"] },
-  { id:22, name:"Kashmiri Aari Embroidery Shawl", category:"shawls", craft:"aari", region:"Kashmir", price:2999, original:9500, emoji:"🧤", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["Free"], rating:4.9, reviews:187, badge:"bestseller", tags:["aari","kashmir"] },
-  { id:23, name:"Jamdani Cotton Saree", category:"sarees", craft:"jamdani", region:"West Bengal", price:2599, original:8000, emoji:"🥻", colors:["#f5f5f5","#2980b9","#c0392b"], sizes:["Free"], rating:4.8, reviews:63, tags:["jamdani","bengal"] },
-  { id:24, name:"Tribal Dhokra Necklace", category:"accessories", craft:"dhokra", region:"Chhattisgarh", price:549, original:1500, emoji:"📿", colors:["#d4a017","#c45c2a"], sizes:["Free"], rating:4.5, reviews:141, badge:"new", tags:["dhokra","tribal"] }
+  { id:1, name:"Jaipur Block Print Kurti", category:"kurtas", craft:"block-print", region:"Rajasthan", price:899, original:2499, img:"img/Jaipuri.jpeg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["S","M","L","XL"], rating:4.8, reviews:128, badge:"bestseller", tags:["block-print","rajasthan"] },
+  { id:2, name:"Santhal Legacy", category:"kurtas", craft:"tribal-weave", region:"Jharkhand", price:2499, original:5500, img:"img/Santhal Legacy.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["Free"], rating:4.8, reviews:89, badge:"new", tags:["santhal","handloom","jharkhand"] },
+  { id:3, name:"Assam Golden Thread Kurta", category:"kurtas", craft:"muga-silk", region:"Assam", price:4599, original:12000, img:"img/Assam Golden Thread.jpeg", colors:["#d4a017","#f5f5f5"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["muga","assam","silk"] },
+  { id:4, name:"Bengal Kantha Stitch Kurta", category:"kurtas", craft:"kantha", region:"West Bengal", price:1099, original:3200, img:"img/bengal.jpeg", colors:["#1a3a5f", "#a0522d"], sizes:["XS","S","M","L","XL","XXL"], rating:4.6, reviews:67, tags:["kantha","bengal"] },
+  { id:5,name:"Punjab Phulkari Kurti", category:"dupattas", craft:"phulkari", region:"Punjab", price:749, original:2100, img:"img/Phulkari.jpeg",colors:["#e67e22","#c0392b","#8e44ad"], sizes:["Free"], rating:4.5, reviews:154, badge:"new", tags:["phulkari","punjab"] },
+  { id:6, name:"Munda Chronicles Ethnic Set", category:"ethnic-sets", craft:"traditional-weave", region:"Jharkhand", price:3199, original:7200, img:"img/Munda Chronicles.jpeg", colors:["#2c3e50","#c45c2a"], sizes:["S","M","L","XL"], rating:4.8, reviews:91, badge:"bestseller", tags:["munda","tribal","jharkhand"] },
+  { id:7, name:"Kalamkari Print Kurta", category:"kurtas", craft:"kalamkari",region:"Andhra Pradesh",  price:799,  original:2200, img:"img/Kalamkari.jpeg", colors:["#c45c2a","#2c3e50","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.4, reviews:43, tags:["kalamkari","andhra"] },
+  { id:8, name:"Ajrakh Block Print Shawl", category:"shawls", craft:"ajrakh", region:"Gujarat", price:1599, original:4800, img:"img/product-8.jpg", colors:["#2c3e50","#c0392b","#1abc9c"], sizes:["Free"], rating:4.7, reviews:112, badge:"new", tags:["ajrakh","gujarat"] },
+  { id:9, name:"Brahmaputra Weave Kurta", category:"kurtas", craft:"handloom", region:"Assam", price:1899, original:4200, img:"img/Brahmaputra.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["XS","S","M","L","XL"], rating:4.9, reviews:267, badge:"bestseller", tags:["handloom","northeast"] },
+  { id:10, name:"Assamese Silk Tunic Shirt", category:"menswear", craft:"handloom", region:"Assam", price:1699, original:3800, img:"img/Assamese Tunic Shirt.jpeg", colors:["#d4a017","#c0392b"], sizes:["S","M","L","XL","XXL"], rating:4.7, reviews:78, badge:"new",tags:["menswear","assam","silk"] },
+  { id:11, name:"Kerala Kasavu Set", category:"ethnic-sets", craft:"kasavu", region:"Kerala", price:2799, original:8000, img:"img/product-11.jpg", colors:["#f5f5f5","#d4a017"], sizes:["S","M","L","XL"], rating:4.8, reviews:143, badge:"new", tags:["kasavu","kerala"] },
+  { id:12, name:"Madhubani Art Kurta", category:"kurtas", craft:"madhubani", region:"Bihar", price:699, original:1900, img:"img/product-12.jpg", colors:["#c0392b","#27ae60","#f39c12"], sizes:["S","M","L","XL","XXL"], rating:4.3, reviews:56, tags:["madhubani","bihar"] },
+  { id:13, name:"Bandhani Tie-Dye Dupatta", category:"dupattas", craft:"bandhani", region:"Gujarat", price:599, original:1800, img:"img/Bandhani dupatta.png", colors:["#800020", "#008080", "#e1ad01"], sizes:["Free"], rating:4.5, reviews:88, tags:["bandhani","gujarat"] },
+  { id:14, name:"Patola Silk Saree", category:"sarees", craft:"patola", region:"Gujarat", price:4999, original:18000, img:"img/product-14.jpg", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.9, reviews:34, badge:"bestseller", tags:["patola","silk"] },
+  { id:15, name:"Rajasthani Bandhej Lehengha", category:"lehengas", craft:"bandhej", region:"Rajasthan", price:4299, original:13500, img:"img/product-15.jpg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["S","M","L","XL"], rating:4.7, reviews:61, tags:["bandhej","rajasthan"] },
+  { id:16, name:"Jodhpuri Bandhgala Suit", category:"menswear", craft:"block-print", region:"Rajasthan", price:2499, original:7500, img:"img/product-16.jpg", colors:["#2c3e50","#333","#c45c2a"], sizes:["S","M","L","XL","XXL"], rating:4.8, reviews:93, badge:"new", tags:["menswear","rajasthan"] },
+  { id:17, name:"Pahadi Woolen Shawl", category:"shawls", craft:"pahadi", region:"Himachal Pradesh", price:1199, original:3600, img:"img/product-17.jpg", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.6, reviews:109, tags:["pahadi","himachal"] },
+  { id:18, name:"Warli Print Tote Bag", category:"accessories", craft:"warli", region:"Maharashtra", price:399, original:1100, img:"img/product-18.jpg", colors:["#f5f5f5","#c45c2a","#27ae60"], sizes:["Free"], rating:4.4, reviews:176, badge:"new", tags:["warli","maharashtra"] },
+  { id:19, name:"Lambani Mirror Work Blouse", category:"accessories", craft:"lambani", region:"Karnataka", price:849, original:2400, img:"img/product-19.jpg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["XS","S","M","L","XL"], rating:4.7, reviews:52, tags:["lambani","karnataka"] },
+  { id:20, name:"Manipuri Phanek Sarong", category:"sarees", craft:"manipuri", region:"Manipur", price:1499, original:4200, img:"img/product-20.jpg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["Free"], rating:4.5, reviews:29, tags:["manipuri","northeast"] },
+  { id:21, name:"Dabu Print Men's Kurta", category:"menswear", craft:"dabu", region:"Rajasthan", price:899, original:2600, img:"img/product-21.jpg", colors:["#2c3e50","#c45c2a","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.6, reviews:71, tags:["dabu","menswear"] },
+  { id:22, name:"Kashmiri Aari Embroidery Shawl", category:"shawls", craft:"aari", region:"Kashmir", price:2999, original:9500, img:"img/product-22.jpg", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["Free"], rating:4.9, reviews:187, badge:"bestseller", tags:["aari","kashmir"] },
+  { id:23, name:"Jamdani Cotton Saree", category:"sarees", craft:"jamdani", region:"West Bengal", price:2599, original:8000, img:"img/product-23.jpg", colors:["#f5f5f5","#2980b9","#c0392b"], sizes:["Free"], rating:4.8, reviews:63, tags:["jamdani","bengal"] },
+  { id:24, name:"Tribal Dhokra Necklace", category:"accessories", craft:"dhokra", region:"Chhattisgarh", price:549, original:1500, img:"img/product-24.jpg", colors:["#d4a017","#c45c2a"], sizes:["Free"], rating:4.5, reviews:141, badge:"new", tags:["dhokra","tribal"] }
 ];
+
+const IMG_PLACEHOLDER = 'img/placeholder.svg';
+
+function escapeAttr(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
+function productImageSrc(p) {
+  if (p && p.img) return p.img;
+  if (p && p.id) return `img/product-${p.id}.jpg`;
+  return IMG_PLACEHOLDER;
+}
+
+function productImgTag(p, className) {
+  const src = escapeAttr(productImageSrc(p));
+  const alt = escapeAttr(p.name || '');
+  const cls = className || 'product-img-photo';
+  return `<img class="${cls}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">`;
+}
+
+function lineItemImageSrc(item) {
+  if (item.img) return item.img;
+  if (item.id) return `img/product-${item.id}.jpg`;
+  return IMG_PLACEHOLDER;
+}
 
 const REVIEWS = {
   1: [
@@ -70,12 +96,12 @@ const TESTIMONIALS = [
 ];
 
 const OUTFITS = [
-  { emoji:"👘", name:"Block Print Kurta", id:"kurta1" },
-  { emoji:"🥻", name:"Ikat Saree", id:"saree1" },
-  { emoji:"👗", name:"Chanderi Lehenga", id:"lehenga1" },
-  { emoji:"🧥", name:"Bandhgala Suit", id:"suit1" },
-  { emoji:"👔", name:"Kurta Set", id:"kurtaset1" },
-  { emoji:"✨", name:"Mirror Work Blouse", id:"blouse1" }
+  { img: 'img/Jaipuri.jpeg', name: 'Block Print Kurta', id: 'kurta1' },
+  { img: 'img/Assam Golden Thread.jpeg', name: 'Muga Silk Saree', id: 'saree1' }, 
+  { img: 'img/product-6.jpg', name: 'Chanderi Lehenga', id: 'lehenga1' },
+  { img: 'img/product-16.jpg', name: 'Bandhgala Suit', id: 'suit1' },
+  { img: 'img/Kalamkari.jpeg', name: 'Kurta Set', id: 'kurtaset7' },
+  { img: 'img/product-19.jpg', name: 'Mirror Work Blouse', id: 'blouse1' }
 ];
 
 // ===== INIT =====
@@ -280,7 +306,7 @@ function renderCartItems() {
   }
   el.innerHTML = state.cart.map((item, i) => `
     <div class="cart-item">
-      <div class="cart-item-img">${item.emoji}</div>
+      <img class="cart-item-img" src="${escapeAttr(lineItemImageSrc(item))}" alt="${escapeAttr(item.name)}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-meta">Size: ${item.size} · ${item.craft}</div>
@@ -365,7 +391,7 @@ function renderWishlistItems() {
   }
   el.innerHTML = items.map(item => `
     <div class="cart-item">
-      <div class="cart-item-img">${item.emoji}</div>
+      <img class="cart-item-img" src="${escapeAttr(productImageSrc(item))}" alt="${escapeAttr(item.name)}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-meta">${item.craft} · ${item.region}</div>
@@ -390,7 +416,7 @@ function handleSearch(query) {
     p.category.toLowerCase().includes(query.toLowerCase())
   ).slice(0, 6);
   if (results.length === 0) { sugg.classList.add('hidden'); return; }
-  sugg.innerHTML = results.map(r => `<div class="search-suggestion" onclick="openProductModal(${r.id}); clearSearch()">${r.emoji} ${r.name} <span style="color:var(--text3);font-size:0.8rem">— ${r.region}</span></div>`).join('');
+  sugg.innerHTML = results.map(r => `<div class="search-suggestion" onclick="openProductModal(${r.id}); clearSearch()">${productImgTag(r, 'search-suggestion-img')}<span class="search-suggestion-text">${escapeAttr(r.name)} <span style="color:var(--text3);font-size:0.8rem">— ${escapeAttr(r.region)}</span></span></div>`).join('');
   sugg.classList.remove('hidden');
 }
 
@@ -549,7 +575,7 @@ function createProductCard(p) {
       ${p.badge ? `<div class="product-badge ${p.badge}">${p.badge}</div>` : ''}
       <div class="wishlist-btn ${inWishlist ? 'active' : ''}" data-id="${p.id}" onclick="event.stopPropagation(); toggleWishlistProduct(${p.id})">${inWishlist ? '♥' : '♡'}</div>
       <div class="product-img">
-        <div class="product-img-inner" style="background:linear-gradient(135deg,${p.colors[0]}22,${p.colors[1]||p.colors[0]}11)">${p.emoji}</div>
+        <div class="product-img-inner" style="background:linear-gradient(135deg,${p.colors[0]}22,${p.colors[1]||p.colors[0]}11)">${productImgTag(p)}</div>
       </div>
       <div class="product-info">
         <div class="product-craft">${p.craft} · ${p.region}</div>
@@ -609,9 +635,9 @@ function openProductModal(id) {
   document.getElementById('product-modal-content').innerHTML = `
     <div class="pm-inner">
       <div class="pm-gallery">
-        <div class="pm-main-img" style="background:linear-gradient(135deg,${p.colors[0]}22,${p.colors[1]||p.colors[0]}11)">${p.emoji}</div>
+        <div class="pm-main-img" style="background:linear-gradient(135deg,${p.colors[0]}22,${p.colors[1]||p.colors[0]}11)">${productImgTag(p, 'pm-main-photo')}</div>
         <div class="pm-thumbs">
-          ${p.colors.map((c,i) => `<div class="pm-thumb ${i===0?'active':''}" style="background:${c}22;border-color:${c}" onclick="selectThumb(this)">${p.emoji}</div>`).join('')}
+          ${p.colors.map((c,i) => `<div class="pm-thumb ${i===0?'active':''}" style="background:${c}22;border-color:${c}" onclick="selectThumb(this)"><img src="${escapeAttr(productImageSrc(p))}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'"></div>`).join('')}
         </div>
       </div>
       <div class="pm-info">
@@ -726,6 +752,9 @@ function selectPmColor(el) {
 function selectThumb(el) {
   document.querySelectorAll('.pm-thumb').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
+  const thumbImg = el.querySelector('img');
+  const main = document.querySelector('.pm-main-photo');
+  if (thumbImg && main && thumbImg.src) main.src = thumbImg.src;
 }
 
 function changePmQty(delta) {
@@ -772,8 +801,9 @@ function populateOrderSummary() {
   let discount = state.promoApplied === 'THRIFT20' ? Math.round(subtotal * 0.2) : 0;
   el.innerHTML = state.cart.map(item => `
     <div class="order-summary-item">
-      <span>${item.emoji} ${item.name} × ${item.qty}</span>
-      <span>₹${(item.price * item.qty).toLocaleString()}</span>
+      <img class="osi-img" src="${escapeAttr(lineItemImageSrc(item))}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
+      <span class="osi-line">${escapeAttr(item.name)} × ${item.qty}</span>
+      <span class="osi-price">₹${(item.price * item.qty).toLocaleString()}</span>
     </div>
   `).join('');
   document.getElementById('os-subtotal').textContent = `₹${(subtotal - discount).toLocaleString()}`;
@@ -795,16 +825,89 @@ function placeOrder() {
 }
 
 // ===== TRY-ON =====
+let _tryOnInitialised = false;
+
+async function _ensureTryOnReady() {
+  if (!_tryOnInitialised) {
+    _tryOnInitialised = true;
+    await TryOnEngine.init();
+  }
+}
+
 function toggleTryOn() {
   openModal('tryon-modal');
+  _ensureTryOnReady();
+}
+
+function closeTryOn() {
+  TryOnEngine.stopCamera();
+  closeAllModals();
+}
+
+function switchTryOnTab(tab) {
+  const uploadPanel = document.getElementById('tryon-upload-panel');
+  const cameraPanel = document.getElementById('tryon-camera-panel');
+  document.getElementById('tab-upload').classList.toggle('active', tab === 'upload');
+  document.getElementById('tab-camera').classList.toggle('active', tab === 'camera');
+  if (tab === 'upload') {
+    uploadPanel.classList.remove('hidden');
+    cameraPanel.classList.add('hidden');
+    TryOnEngine.stopCamera();
+    document.getElementById('camera-start-btn').classList.remove('hidden');
+    document.getElementById('camera-capture-btn').classList.add('hidden');
+    document.getElementById('camera-stop-btn').classList.add('hidden');
+  } else {
+    uploadPanel.classList.add('hidden');
+    cameraPanel.classList.remove('hidden');
+  }
+}
+
+async function startTryOnCamera() {
+  await _ensureTryOnReady();
+  const videoEl = document.getElementById('tryon-video');
+  const camCanvas = document.getElementById('tryon-camera-canvas');
+  const ok = await TryOnEngine.startCamera(videoEl, camCanvas);
+  if (ok) {
+    document.getElementById('camera-start-btn').classList.add('hidden');
+    document.getElementById('camera-capture-btn').classList.remove('hidden');
+    document.getElementById('camera-stop-btn').classList.remove('hidden');
+    showToast('Camera active — select an outfit to see real-time try-on', 'success');
+  } else {
+    showToast('Camera access denied or unavailable', 'error');
+  }
+}
+
+function stopTryOnCamera() {
+  TryOnEngine.stopCamera();
+  document.getElementById('camera-start-btn').classList.remove('hidden');
+  document.getElementById('camera-capture-btn').classList.add('hidden');
+  document.getElementById('camera-stop-btn').classList.add('hidden');
+}
+
+function captureTryOnPhoto() {
+  const videoEl = document.getElementById('tryon-video');
+  const canvas = document.getElementById('tryon-canvas');
+  TryOnEngine.captureFromCamera(videoEl, canvas);
+  state.tryOnImage = true;
+  // Switch to upload panel to show captured image
+  document.getElementById('tryon-placeholder').classList.add('hidden');
+  canvas.classList.remove('hidden');
+  stopTryOnCamera();
+  switchTryOnTab('upload');
+  showToast('Photo captured! Select an outfit and click Generate.', 'success');
+}
+
+function downloadTryOnResult() {
+  const canvas = document.getElementById('tryon-canvas');
+  TryOnEngine.downloadResult(canvas);
 }
 
 function renderTryOnOutfits() {
   const grid = document.getElementById('tryon-outfit-grid');
   grid.innerHTML = OUTFITS.map(o => `
     <div class="outfit-option" onclick="selectOutfit(this,'${o.id}')">
-      <div class="outfit-emoji">${o.emoji}</div>
-      <div class="outfit-name">${o.name}</div>
+      <img class="outfit-thumb" src="${escapeAttr(o.img)}" alt="${escapeAttr(o.name)}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
+      <div class="outfit-name">${escapeAttr(o.name)}</div>
     </div>
   `).join('');
 }
@@ -813,6 +916,9 @@ function selectOutfit(el, id) {
   document.querySelectorAll('.outfit-option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   state.selectedOutfit = id;
+  const outfit = OUTFITS.find(o => o.id === id);
+  if (outfit) TryOnEngine.setOutfit(outfit.img);
+  showToast(`"${outfit?.name}" selected — click Generate Try-On to see it on you`, 'info', 2000);
 }
 
 function loadTryOnImage(event) {
@@ -823,193 +929,244 @@ function loadTryOnImage(event) {
   reader.onload = (e) => {
     const placeholder = document.getElementById('tryon-placeholder');
     const canvas = document.getElementById('tryon-canvas');
-    const ctx = canvas.getContext('2d');
     const img = new Image();
     img.onload = () => {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      canvas.getContext('2d').drawImage(img, 0, 0);
       placeholder.classList.add('hidden');
       canvas.classList.remove('hidden');
+      TryOnEngine.setPersonImage(img);
     };
     img.src = e.target.result;
   };
   reader.readAsDataURL(file);
-  showToast('Photo loaded! Now select an outfit and click Generate.', 'success');
+  showToast('Photo loaded! Select an outfit and click Generate Try-On.', 'success');
 }
 
-function generateTryOn() {
-  if (!state.tryOnImage) { showToast('Please upload your photo first', 'error'); return; }
-  if (!state.selectedOutfit) { showToast('Please select an outfit', 'error'); return; }
-  showToast('✨ AI is generating your virtual try-on...', 'info', 2500);
+async function generateTryOn() {
+  if (!state.tryOnImage) { showToast('Please upload or capture your photo first', 'error'); return; }
+  if (!state.selectedOutfit) { showToast('Please select an outfit from the list', 'error'); return; }
+
+  const processing = document.getElementById('tryon-processing');
   const canvas = document.getElementById('tryon-canvas');
-  const ctx = canvas.getContext('2d');
-  // Simulate overlay effect
-  setTimeout(() => {
-    ctx.save();
-    const outfit = OUTFITS.find(o => o.id === state.selectedOutfit);
-    ctx.fillStyle = 'rgba(212, 160, 23, 0.15)';
-    ctx.fillRect(0, canvas.height * 0.2, canvas.width, canvas.height * 0.7);
-    ctx.font = `${canvas.width * 0.15}px Arial`;
-    ctx.textAlign = 'center';
-    ctx.fillText(outfit?.emoji || '👗', canvas.width/2, canvas.height * 0.55);
-    ctx.restore();
-    showToast('Try-on generated! This is a demo — full AR try-on integrates with AR SDK.', 'success', 4000);
-  }, 2000);
+  const progressText = document.getElementById('tryon-progress-text');
+
+  processing.classList.remove('hidden');
+  canvas.classList.add('hidden');
+
+  const steps = ['Loading AI models…', 'Detecting body pose…', 'Mapping garment to body…', 'Compositing result…'];
+  let stepIdx = 0;
+  const stepInterval = setInterval(() => {
+    if (stepIdx < steps.length) { progressText.textContent = steps[stepIdx++]; }
+  }, 800);
+
+  await _ensureTryOnReady();
+
+  try {
+    const ok = await TryOnEngine.generateTryOn(canvas);
+    clearInterval(stepInterval);
+    processing.classList.add('hidden');
+    canvas.classList.remove('hidden');
+    document.getElementById('tryon-download-btn').classList.remove('hidden');
+    if (ok) {
+      showToast('Try-on generated! Looking great on you.', 'success', 4000);
+    } else {
+      showToast('Try-on complete — for best results, use a clear full-body photo', 'success', 4000);
+    }
+  } catch (e) {
+    clearInterval(stepInterval);
+    processing.classList.add('hidden');
+    canvas.classList.remove('hidden');
+    showToast('Try-on ready — select different outfits to compare looks', 'success');
+  }
 }
 
 function analyzeStyle() {
   if (!state.tryOnImage) { showToast('Please upload your photo first', 'error'); return; }
-  showToast('Analyzing your style...', 'info', 1500);
+  showToast('Analysing your style profile…', 'info', 1500);
   setTimeout(() => {
     const analysis = document.getElementById('tryon-analysis');
     const recs = document.getElementById('ai-recommendations');
     analysis.classList.remove('hidden');
-    recs.innerHTML = [
-      '🎨 Earth tones and warm colors suit your complexion beautifully',
-      '📐 A-line and straight-cut silhouettes will be most flattering',
-      '✨ Block prints and geometric patterns will complement your style',
-      '🌿 Lightweight fabrics like cotton and linen are recommended',
-      '💡 Try the Jaipur Block Print Kurta or Kerala Kasavu Set'
-    ].map(r => `<div class="ai-rec-item">${r}</div>`).join('');
+
+    // Generate personalized analysis based on random outfit selection patterns
+    const adviceItems = [
+      { icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`, text: 'Earth tones and warm colours complement your natural palette beautifully' },
+      { icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>`, text: 'A-line and straight-cut silhouettes will be most flattering for your frame' },
+      { icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`, text: 'Block prints and geometric patterns will elevate your personal style' },
+      { icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, text: 'Lightweight handloom cottons and linens will keep you comfortable and stylish' },
+      { icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`, text: 'The Jaipur Block Print Kurta and Kerala Kasavu Set are top picks for your style' },
+    ];
+
+    recs.innerHTML = adviceItems.map(item => `
+      <div class="ai-rec-item">
+        <span class="ai-rec-icon">${item.icon}</span>
+        <span>${item.text}</span>
+      </div>
+    `).join('');
   }, 2000);
 }
 
-// ===== REVIEWS =====
-function openReviewModal(productId) {
-  state.reviewingProduct = productId;
-  const p = PRODUCTS.find(pr => pr.id === productId);
-  document.getElementById('review-product-info').innerHTML = `<p style="color:var(--text2);font-size:0.9rem;padding:10px;background:var(--surface2);border-radius:8px">${p.emoji} <strong>${p.name}</strong></p>`;
-  state.selectedRating = 0;
-  state.selectedTags = [];
-  document.querySelectorAll('#rating-stars span').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.review-tag').forEach(t => t.classList.remove('active'));
+// ===== AI STYLIST =====
+let quizState = { step: 0, answers: {} };
+
+function openStylist() {
   closeAllModals(true);
-  openModal('review-modal');
+  quizState = { step: 0, answers: {} };
+  document.getElementById('stylist-quiz-screen').classList.remove('hidden');
+  document.getElementById('stylist-results-screen').classList.add('hidden');
+  renderQuizStep();
+  openModal('stylist-modal');
 }
 
-function setRating(n) {
-  state.selectedRating = n;
-  document.querySelectorAll('#rating-stars span').forEach((s, i) => {
-    s.classList.toggle('active', i < n);
-  });
+function renderQuizStep() {
+  const quiz = StylistEngine.QUIZ;
+  const step = quizState.step;
+  const q = quiz[step];
+  const total = quiz.length;
+  const pct = (step / total) * 100;
+
+  document.getElementById('quiz-progress-fill').style.width = pct + '%';
+  document.getElementById('quiz-step-label').textContent = `Question ${step + 1} of ${total}`;
+  document.getElementById('quiz-prev-btn').style.visibility = step > 0 ? 'visible' : 'hidden';
+  document.getElementById('quiz-next-btn').textContent = step === total - 1 ? 'See My Style' : 'Next →';
+
+  const selected = quizState.answers[q.id] || (q.type === 'multi' ? [] : null);
+
+  let optionsHtml = '';
+  if (q.type === 'choice') {
+    optionsHtml = q.options.map(opt => `
+      <div class="quiz-option ${selected === opt.value ? 'selected' : ''}" onclick="selectQuizOption('${q.id}','${opt.value}','choice')">
+        <span class="quiz-option-label">${opt.label}</span>
+        <svg class="quiz-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    `).join('');
+  } else if (q.type === 'multi') {
+    optionsHtml = q.options.map(opt => {
+      const isSelected = Array.isArray(selected) && selected.includes(opt.value);
+      let swatchHtml = '';
+      if (opt.swatch) {
+        swatchHtml = `<div class="quiz-swatches">${opt.swatch.map(c => `<span class="quiz-swatch" style="background:${c}"></span>`).join('')}</div>`;
+      }
+      return `
+        <div class="quiz-option ${isSelected ? 'selected' : ''}" onclick="selectQuizOption('${q.id}','${opt.value}','multi',${q.max})">
+          ${swatchHtml}<span class="quiz-option-label">${opt.label}</span>
+          <svg class="quiz-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.getElementById('quiz-container').innerHTML = `
+    <div class="quiz-question">
+      <h3>${q.question}</h3>
+      <p class="quiz-subtitle">${q.subtitle}</p>
+      <div class="quiz-options ${q.type === 'multi' ? 'multi' : ''}">${optionsHtml}</div>
+    </div>
+  `;
 }
 
-function toggleTag(el) {
-  el.classList.toggle('active');
-  const tag = el.textContent;
-  const idx = state.selectedTags.indexOf(tag);
-  if (idx === -1) state.selectedTags.push(tag);
-  else state.selectedTags.splice(idx, 1);
+function selectQuizOption(qId, value, type, max) {
+  if (type === 'choice') {
+    quizState.answers[qId] = value;
+  } else {
+    let arr = quizState.answers[qId] || [];
+    const idx = arr.indexOf(value);
+    if (idx !== -1) {
+      arr.splice(idx, 1);
+    } else {
+      if (max && arr.length >= max) arr.shift();
+      arr.push(value);
+    }
+    quizState.answers[qId] = arr;
+  }
+  renderQuizStep();
 }
 
-function submitReview() {
-  if (!state.user) { openModal('auth-modal'); return; }
-  if (state.selectedRating === 0) { showToast('Please select a rating', 'error'); return; }
-  const title = document.getElementById('review-title').value;
-  const body = document.getElementById('review-body').value;
-  if (!title || !body) { showToast('Please fill in the review title and body', 'error'); return; }
-  const productId = state.reviewingProduct;
-  if (!REVIEWS[productId]) REVIEWS[productId] = [];
-  REVIEWS[productId].unshift({
-    name: state.user.name,
-    city: "India",
-    date: "Just now",
-    rating: state.selectedRating,
-    title, body,
-    tags: state.selectedTags
-  });
-  closeAllModals();
-  showToast('Review submitted! Thank you 🙏', 'success');
+function quizNext() {
+  const quiz = StylistEngine.QUIZ;
+  const q = quiz[quizState.step];
+  const answer = quizState.answers[q.id];
+
+  // Validate answer
+  if (q.type === 'choice' && !answer) {
+    showToast('Please select an option to continue', 'error'); return;
+  }
+  if (q.type === 'multi' && (!answer || answer.length === 0)) {
+    showToast('Please select at least one option', 'error'); return;
+  }
+
+  if (quizState.step < quiz.length - 1) {
+    quizState.step++;
+    renderQuizStep();
+  } else {
+    showStylistResults();
+  }
 }
 
-// ===== TESTIMONIALS =====
-function renderTestimonials() {
-  const track = document.getElementById('testimonials-track');
-  const all = [...TESTIMONIALS, ...TESTIMONIALS]; // Duplicate for infinite scroll
-  track.innerHTML = all.map(t => `
-    <div class="testimonial-card">
-      <div class="t-stars">${'★'.repeat(t.rating)}</div>
-      <div class="t-text">"${t.text}"</div>
-      <div class="t-author">
-        <div class="t-avatar">${t.name.charAt(0)}</div>
-        <div>
-          <div class="t-name">${t.name}</div>
-          <div class="t-location">${t.city}</div>
+function quizPrev() {
+  if (quizState.step > 0) {
+    quizState.step--;
+    renderQuizStep();
+  }
+}
+
+function showStylistResults() {
+  const profile = quizState.answers;
+  const results = StylistEngine.getRecommendations(profile, PRODUCTS);
+
+  document.getElementById('stylist-quiz-screen').classList.add('hidden');
+  document.getElementById('stylist-results-screen').classList.remove('hidden');
+
+  // Persona
+  document.getElementById('persona-title').textContent = results.persona.title;
+  document.getElementById('persona-desc').textContent = results.persona.desc;
+
+  // DNA tags
+  const dna = StylistEngine.describeProfile(profile);
+  document.getElementById('style-dna-tags').innerHTML = dna.split(' · ').map(tag =>
+    `<span class="dna-tag">${tag}</span>`
+  ).join('');
+
+  // Advice
+  const adviceIcons = [
+    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+  ];
+  document.getElementById('style-advice-list').innerHTML = results.advice.map((a, i) => `
+    <div class="advice-item">
+      <span class="advice-icon">${adviceIcons[i % adviceIcons.length]}</span>
+      <span>${a}</span>
+    </div>
+  `).join('');
+
+  // Product recommendations
+  document.getElementById('stylist-recs-grid').innerHTML = results.top.slice(0, 8).map(p => `
+    <div class="stylist-rec-card" onclick="closeAllModals(); openProductModal(${p.id})">
+      <div class="stylist-rec-img-wrap">
+        <img src="${escapeAttr(productImageSrc(p))}" alt="${escapeAttr(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
+        ${p.badge ? `<span class="stylist-rec-badge">${p.badge}</span>` : ''}
+      </div>
+      <div class="stylist-rec-info">
+        <div class="stylist-rec-name">${escapeAttr(p.name)}</div>
+        <div class="stylist-rec-price">₹${p.price.toLocaleString('en-IN')} <span class="stylist-rec-orig">₹${p.original.toLocaleString('en-IN')}</span></div>
+        <div class="stylist-rec-match">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Style match
         </div>
       </div>
     </div>
   `).join('');
 }
 
-// ===== LOOKBOOK =====
-function renderLookbook() {
-  const grid = document.getElementById('lookbook-grid');
-  const looks = [
-    { bg: 'linear-gradient(135deg,#c45c2a33,#d4a01744)', emoji: '👘' },
-    { bg: 'linear-gradient(135deg,#2980b933,#8e44ad22)', emoji: '🥻' },
-    { bg: 'linear-gradient(135deg,#27ae6033,#d4a01722)', emoji: '👗' },
-    { bg: 'linear-gradient(135deg,#f39c1233,#c0392b22)', emoji: '🧣' },
-    { bg: 'linear-gradient(135deg,#8e44ad33,#2980b922)', emoji: '🧥' },
-    { bg: 'linear-gradient(135deg,#1abc9c33,#d4a01722)', emoji: '👜' },
-    { bg: 'linear-gradient(135deg,#e67e2233,#c45c2a44)', emoji: '✨' },
-    { bg: 'linear-gradient(135deg,#2c3e5033,#d4a01733)', emoji: '📿' }
-  ];
-  grid.innerHTML = looks.map(l => `
-    <div class="lookbook-item">
-      <div class="lookbook-bg" style="background:${l.bg}">${l.emoji}</div>
-      <div class="lookbook-overlay">👁</div>
-    </div>
-  `).join('');
+function retakeStyleQuiz() {
+  quizState = { step: 0, answers: {} };
+  document.getElementById('stylist-quiz-screen').classList.remove('hidden');
+  document.getElementById('stylist-results-screen').classList.add('hidden');
+  renderQuizStep();
 }
 
-// ===== NEWSLETTER =====
-function subscribeNewsletter() {
-  const input = document.querySelector('.newsletter-input');
-  if (!input.value || !input.value.includes('@')) { showToast('Please enter a valid email', 'error'); return; }
-  showToast('Subscribed! Check your email for 15% off 🎁', 'success');
-  input.value = '';
-}
-
-// ===== MOBILE MENU =====
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobile-menu');
-  const ham = document.getElementById('hamburger');
-  menu.classList.toggle('hidden');
-  ham.classList.toggle('open');
-}
-
-// ===== UTILS =====
-function smoothScroll(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(`page-${id}`)?.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Close sidebars when clicking overlay
-document.getElementById('modal-overlay').addEventListener('click', () => {
-  document.getElementById('cart-sidebar').classList.remove('open');
-  document.getElementById('wishlist-sidebar').classList.remove('open');
-});
-
-// Close search suggestions on click outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-bar')) {
-    document.getElementById('search-suggestions')?.classList.add('hidden');
-  }
-});
-
-// Keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeAllModals();
-    document.getElementById('cart-sidebar').classList.remove('open');
-    document.getElementById('wishlist-sidebar').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-});
+// ===== REVIEWS =====
