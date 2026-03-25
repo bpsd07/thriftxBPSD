@@ -1156,23 +1156,67 @@ function showStylistResults() {
   `).join('');
 }
 
+// ... (keep all your Stylist results code above)
+
 function retakeStyleQuiz() {
   quizState = { step: 0, answers: {} };
   document.getElementById('stylist-quiz-screen').classList.remove('hidden');
   document.getElementById('stylist-results-screen').classList.add('hidden');
   renderQuizStep();
 }
-// Add this at the end of app.js
+
+// ===== REVIEWS RENDER =====
+function renderTestimonials() {
+  const track = document.getElementById('testimonials-track');
+  if (!track) return;
+  // Duplicate for infinite scroll effect
+  const all = [...TESTIMONIALS, ...TESTIMONIALS]; 
+  track.innerHTML = all.map(t => `
+    <div class="testimonial-card">
+      <div class="t-stars">${'★'.repeat(t.rating)}</div>
+      <div class="t-text">"${t.text}"</div>
+      <div class="t-author">
+        <div class="t-avatar">${t.name.charAt(0)}</div>
+        <div>
+          <div class="t-name">${t.name}</div>
+          <div class="t-location">${t.city}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== LOOKBOOK RENDER =====
+function renderLookbook() {
+  const grid = document.getElementById('lookbook-grid');
+  if (!grid) return;
+
+  // Map first 8 products for the lookbook
+  const looks = PRODUCTS.slice(0, 8).map(p => ({
+    src: p.img,
+    bg: `linear-gradient(135deg,${p.colors[0]}33,${(p.colors[1] || p.colors[0])}22)`,
+    alt: p.name
+  }));
+
+  grid.innerHTML = looks.map(l => `
+    <div class="lookbook-item">
+      <div class="lookbook-bg" style="background:${l.bg}">
+        <img class="lookbook-photo" src="${l.src}" alt="${l.alt}" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'">
+      </div>
+      <div class="lookbook-overlay">View Look</div>
+    </div>
+  `).join('');
+}
+
+// ===== PRELOADER HIDE =====
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
     setTimeout(() => {
       preloader.classList.add('hidden');
-      // Completely remove it from the DOM flow after 500ms
       setTimeout(() => {
         preloader.style.display = 'none';
       }, 500);
     }, 2000);
   }
 });
-// ===== REVIEWS =====
