@@ -25,19 +25,19 @@ const state = {
 // ===== PRODUCT DATA =====
 // Each product uses `img`: path under `img/` (jpg, jpeg, png, webp). Missing files show img/placeholder.svg.
 const PRODUCTS = [
-  { id:1, name:"Jaipur Block Print Kurti", category:"kurtas", craft:"block-print", region:"Rajasthan", price:899, original:2499, img:"img/Jaipuri.jpeg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["S","M","L","XL"], rating:4.8, reviews:128, badge:"bestseller", tags:["block-print","rajasthan"] },
-  { id:2, name:"Santhal Legacy", category:"kurtas", craft:"tribal-weave", region:"Jharkhand", price:2499, original:5500, img:"img/Santhal Legacy.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["Free"], rating:4.8, reviews:89, badge:"new", tags:["santhal","handloom","jharkhand"] },
-  { id:3, name:"Assam Golden Thread Kurta", category:"kurtas", craft:"muga-silk", region:"Assam", price:4599, original:12000, img:"img/Assam Golden Thread.jpeg", colors:["#d4a017","#f5f5f5"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["muga","assam","silk"] },
-  { id:4, name:"Bengal Kantha Stitch Kurta", category:"kurtas", craft:"kantha", region:"West Bengal", price:1099, original:3200, img:"img/bengal.jpeg", colors:["#1a3a5f", "#a0522d"], sizes:["XS","S","M","L","XL","XXL"], rating:4.6, reviews:67, tags:["kantha","bengal"] },
-  { id:5,name:"Punjab Phulkari Kurti", category:"dupattas", craft:"phulkari", region:"Punjab", price:749, original:2100, img:"img/Phulkari.jpeg",colors:["#e67e22","#c0392b","#8e44ad"], sizes:["Free"], rating:4.5, reviews:154, badge:"new", tags:["phulkari","punjab"] },
+  { id:1, name:"Jaipur Block Print Kurta", category:"kurtas", craft:"block-print", region:"Rajasthan", price:899, original:2499, img:"img/Jaipuri.jpeg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["S","M","L","XL"], rating:4.8, reviews:128, badge:"bestseller", tags:["block-print","rajasthan"] },
+  { id:2, name:"Santhal Legacy Handloom Saree", category:"sarees", craft:"tribal-weave", region:"Jharkhand", price:2499, original:5500, img:"img/Santhal Legacy.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["Free"], rating:4.8, reviews:89, badge:"new", tags:["santhal","handloom","jharkhand"] },
+  { id:3, name:"Assam Golden Thread Saree", category:"sarees", craft:"muga-silk", region:"Assam", price:4599, original:12000, img:"img/Assam Golden Thread.jpeg", colors:["#d4a017","#f5f5f5"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["muga","assam","silk"] },
+  { id:4, name:"Bengal Kantha Stitch Kurta", category:"kurtas", craft:"kantha", region:"West Bengal", price:1099, original:3200, img:"img/bengal.jpeg", colors:["#f39c12","#27ae60","#c0392b"], sizes:["XS","S","M","L","XL","XXL"], rating:4.6, reviews:67, tags:["kantha","bengal"] },
+  { id:5, name:"Punjab Phulkari Dupatta", category:"dupattas", craft:"phulkari", region:"Punjab", price:749, original:2100, img:"img/Phulkari.jpeg", colors:["#e67e22","#c0392b","#8e44ad"], sizes:["Free"], rating:4.5, reviews:154, badge:"new", tags:["phulkari","punjab"] },
   { id:6, name:"Munda Chronicles Ethnic Set", category:"ethnic-sets", craft:"traditional-weave", region:"Jharkhand", price:3199, original:7200, img:"img/Munda Chronicles.jpeg", colors:["#2c3e50","#c45c2a"], sizes:["S","M","L","XL"], rating:4.8, reviews:91, badge:"bestseller", tags:["munda","tribal","jharkhand"] },
-  { id:7, name:"Kalamkari Print Kurta", category:"kurtas", craft:"kalamkari",region:"Andhra Pradesh",  price:799,  original:2200, img:"img/Kalamkari.jpeg", colors:["#c45c2a","#2c3e50","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.4, reviews:43, tags:["kalamkari","andhra"] },
+  { id:7, name:"Kalamkari Print Kurta", category:"kurtas", craft:"kalamkari", region:"Andhra Pradesh", price:799, original:2200, img:"img/Kalamkari.jpeg", colors:["#c45c2a","#2c3e50","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.4, reviews:43, tags:["kalamkari","andhra"] },
   { id:8, name:"Ajrakh Block Print Shawl", category:"shawls", craft:"ajrakh", region:"Gujarat", price:1599, original:4800, img:"img/product-8.jpg", colors:["#2c3e50","#c0392b","#1abc9c"], sizes:["Free"], rating:4.7, reviews:112, badge:"new", tags:["ajrakh","gujarat"] },
   { id:9, name:"Brahmaputra Weave Kurta", category:"kurtas", craft:"handloom", region:"Assam", price:1899, original:4200, img:"img/Brahmaputra.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["XS","S","M","L","XL"], rating:4.9, reviews:267, badge:"bestseller", tags:["handloom","northeast"] },
-  { id:10, name:"Assamese Silk Tunic Shirt", category:"menswear", craft:"handloom", region:"Assam", price:1699, original:3800, img:"img/Assamese Tunic Shirt.jpeg", colors:["#d4a017","#c0392b"], sizes:["S","M","L","XL","XXL"], rating:4.7, reviews:78, badge:"new",tags:["menswear","assam","silk"] },
+  { id:10, name:"Assamese Silk Tunic Shirt", category:"menswear", craft:"handloom", region:"Assam", price:1699, original:3800, img:"img/Assamese Tunic Shirt.jpeg", colors:["#d4a017","#c0392b"], sizes:["S","M","L","XL","XXL"], rating:4.7, reviews:78, badge:"new", tags:["menswear","assam","silk"] },
   { id:11, name:"Kerala Kasavu Set", category:"ethnic-sets", craft:"kasavu", region:"Kerala", price:2799, original:8000, img:"img/product-11.jpg", colors:["#f5f5f5","#d4a017"], sizes:["S","M","L","XL"], rating:4.8, reviews:143, badge:"new", tags:["kasavu","kerala"] },
   { id:12, name:"Madhubani Art Kurta", category:"kurtas", craft:"madhubani", region:"Bihar", price:699, original:1900, img:"img/product-12.jpg", colors:["#c0392b","#27ae60","#f39c12"], sizes:["S","M","L","XL","XXL"], rating:4.3, reviews:56, tags:["madhubani","bihar"] },
-  { id:13, name:"Bandhani Tie-Dye Dupatta", category:"dupattas", craft:"bandhani", region:"Gujarat", price:599, original:1800, img:"img/Bandhani dupatta.png", colors:["#800020", "#008080", "#e1ad01"], sizes:["Free"], rating:4.5, reviews:88, tags:["bandhani","gujarat"] },
+  { id:13, name:"Bandhani dupatta", category:"dupattas", craft:"bandhani", region:"Gujarat", price:599, original:1800, img:"img/Bandhani dupatta.png", colors:["#c0392b","#8e44ad","#e67e22"], sizes:["Free"], rating:4.5, reviews:88, tags:["bandhani","gujarat"] },
   { id:14, name:"Patola Silk Saree", category:"sarees", craft:"patola", region:"Gujarat", price:4999, original:18000, img:"img/product-14.jpg", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.9, reviews:34, badge:"bestseller", tags:["patola","silk"] },
   { id:15, name:"Rajasthani Bandhej Lehengha", category:"lehengas", craft:"bandhej", region:"Rajasthan", price:4299, original:13500, img:"img/product-15.jpg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["S","M","L","XL"], rating:4.7, reviews:61, tags:["bandhej","rajasthan"] },
   { id:16, name:"Jodhpuri Bandhgala Suit", category:"menswear", craft:"block-print", region:"Rajasthan", price:2499, original:7500, img:"img/product-16.jpg", colors:["#2c3e50","#333","#c45c2a"], sizes:["S","M","L","XL","XXL"], rating:4.8, reviews:93, badge:"new", tags:["menswear","rajasthan"] },
@@ -48,7 +48,7 @@ const PRODUCTS = [
   { id:21, name:"Dabu Print Men's Kurta", category:"menswear", craft:"dabu", region:"Rajasthan", price:899, original:2600, img:"img/product-21.jpg", colors:["#2c3e50","#c45c2a","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.6, reviews:71, tags:["dabu","menswear"] },
   { id:22, name:"Kashmiri Aari Embroidery Shawl", category:"shawls", craft:"aari", region:"Kashmir", price:2999, original:9500, img:"img/product-22.jpg", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["Free"], rating:4.9, reviews:187, badge:"bestseller", tags:["aari","kashmir"] },
   { id:23, name:"Jamdani Cotton Saree", category:"sarees", craft:"jamdani", region:"West Bengal", price:2599, original:8000, img:"img/product-23.jpg", colors:["#f5f5f5","#2980b9","#c0392b"], sizes:["Free"], rating:4.8, reviews:63, tags:["jamdani","bengal"] },
-  { id:24, name:"Tribal Dhokra Necklace", category:"accessories", craft:"dhokra", region:"Chhattisgarh", price:549, original:1500, img:"img/product-24.jpg", colors:["#d4a017","#c45c2a"], sizes:["Free"], rating:4.5, reviews:141, badge:"new", tags:["dhokra","tribal"] }
+  { id:24, name:"Tribal Dhokra Necklace", category:"accessories", craft:"dhokra", region:"Chhattisgarh", price:549, original:1500, img:"img/Tribal.jpeg", colors:["#d4a017","#c45c2a"], sizes:["Free"], rating:4.5, reviews:141, badge:"new", tags:["dhokra","tribal"] }
 ];
 
 const IMG_PLACEHOLDER = 'img/placeholder.svg';
@@ -121,15 +121,9 @@ function initApp() {
   updateCartBadge();
   updateWishlistBadge();
 
-  // Preloader
-  setTimeout(() => {
-    document.getElementById('preloader').classList.add('hidden');
-  }, 2200);
-
   // Sticky nav scroll
   window.addEventListener('scroll', handleScroll);
 }
-
 function handleScroll() {
   const nav = document.getElementById('navbar');
   if (window.scrollY > 60) nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.6)';
@@ -1168,5 +1162,17 @@ function retakeStyleQuiz() {
   document.getElementById('stylist-results-screen').classList.add('hidden');
   renderQuizStep();
 }
-
+// Add this at the end of app.js
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      // Completely remove it from the DOM flow after 500ms
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, 2000);
+  }
+});
 // ===== REVIEWS =====
