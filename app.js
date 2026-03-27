@@ -1,5 +1,5 @@
 // ===== THRIFTX APP.JS =====
-
+const API_URL = "https://thriftx-backend.onrender.com/api";
 // ===== STATE =====
 const state = {
   user: null,
@@ -26,28 +26,28 @@ const state = {
 // Each product uses `img`: path under `img/` (jpg, jpeg, png, webp). Missing files show img/placeholder.svg.
 const PRODUCTS = [
   { id:1, name:"Jaipur Block Print Kurta", category:"kurtas", craft:"block-print", region:"Rajasthan", price:899, original:2499, img:"img/Jaipuri.jpeg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["S","M","L","XL"], rating:4.8, reviews:128, badge:"bestseller", tags:["block-print","rajasthan"] },
-  { id:2, name:"Santhal Legacy Handloom Saree", category:"sarees", craft:"tribal-weave", region:"Jharkhand", price:2499, original:5500, img:"img/Santhal Legacy.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["Free"], rating:4.8, reviews:89, badge:"new", tags:["santhal","handloom","jharkhand"] },
-  { id:3, name:"Assam Golden Thread Saree", category:"sarees", craft:"muga-silk", region:"Assam", price:4599, original:12000, img:"img/Assam Golden Thread.jpeg", colors:["#d4a017","#f5f5f5"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["muga","assam","silk"] },
+  { id:2, name:"Santhal Legacy Handloom ", category:"kurtas", craft:"tribal-weave", region:"Jharkhand", price:2499, original:5500, img:"img/Santhal Legacy.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["Free"], rating:4.8, reviews:89, badge:"new", tags:["santhal","handloom","jharkhand", "menswear"] },
+  { id:3, name:"Assam Golden Thread ", category:"kurtas", craft:"muga-silk", region:"Assam", price:4599, original:12000, img:"img/Assam Golden Thread.jpeg", colors:["#d4a017","#f5f5f5"], sizes:["Free"], rating:4.9, reviews:203, badge:"bestseller", tags:["muga","assam","silk"] },
   { id:4, name:"Bengal Kantha Stitch Kurta", category:"kurtas", craft:"kantha", region:"West Bengal", price:1099, original:3200, img:"img/bengal.jpeg", colors:["#f39c12","#27ae60","#c0392b"], sizes:["XS","S","M","L","XL","XXL"], rating:4.6, reviews:67, tags:["kantha","bengal"] },
   { id:5, name:"Punjab Phulkari Dupatta", category:"dupattas", craft:"phulkari", region:"Punjab", price:749, original:2100, img:"img/Phulkari.jpeg", colors:["#e67e22","#c0392b","#8e44ad"], sizes:["Free"], rating:4.5, reviews:154, badge:"new", tags:["phulkari","punjab"] },
   { id:6, name:"Munda Chronicles Ethnic Set", category:"ethnic-sets", craft:"traditional-weave", region:"Jharkhand", price:3199, original:7200, img:"img/Munda Chronicles.jpeg", colors:["#2c3e50","#c45c2a"], sizes:["S","M","L","XL"], rating:4.8, reviews:91, badge:"bestseller", tags:["munda","tribal","jharkhand"] },
   { id:7, name:"Kalamkari Print Kurta", category:"kurtas", craft:"kalamkari", region:"Andhra Pradesh", price:799, original:2200, img:"img/Kalamkari.jpeg", colors:["#c45c2a","#2c3e50","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.4, reviews:43, tags:["kalamkari","andhra"] },
-  { id:8, name:"Ajrakh Block Print Shawl", category:"shawls", craft:"ajrakh", region:"Gujarat", price:1599, original:4800, img:"img/product-8.jpg", colors:["#2c3e50","#c0392b","#1abc9c"], sizes:["Free"], rating:4.7, reviews:112, badge:"new", tags:["ajrakh","gujarat"] },
+  { id:8, name:"Ajrakh Block Print Kurti", category:"kurtas", craft:"ajrakh", region:"Gujarat", price:1599, original:4800, img:"img/Ajrakh.jpeg", colors:["#2c3e50","#c0392b","#1abc9c"], sizes:["Free"], rating:4.7, reviews:112, badge:"new", tags:["ajrakh","gujarat"] },
   { id:9, name:"Brahmaputra Weave Kurta", category:"kurtas", craft:"handloom", region:"Assam", price:1899, original:4200, img:"img/Brahmaputra.jpeg", colors:["#c0392b","#f5f5f5"], sizes:["XS","S","M","L","XL"], rating:4.9, reviews:267, badge:"bestseller", tags:["handloom","northeast"] },
   { id:10, name:"Assamese Silk Tunic Shirt", category:"menswear", craft:"handloom", region:"Assam", price:1699, original:3800, img:"img/Assamese Tunic Shirt.jpeg", colors:["#d4a017","#c0392b"], sizes:["S","M","L","XL","XXL"], rating:4.7, reviews:78, badge:"new", tags:["menswear","assam","silk"] },
-  { id:11, name:"Kerala Kasavu Set", category:"ethnic-sets", craft:"kasavu", region:"Kerala", price:2799, original:8000, img:"img/product-11.jpg", colors:["#f5f5f5","#d4a017"], sizes:["S","M","L","XL"], rating:4.8, reviews:143, badge:"new", tags:["kasavu","kerala"] },
-  { id:12, name:"Madhubani Art Kurta", category:"kurtas", craft:"madhubani", region:"Bihar", price:699, original:1900, img:"img/product-12.jpg", colors:["#c0392b","#27ae60","#f39c12"], sizes:["S","M","L","XL","XXL"], rating:4.3, reviews:56, tags:["madhubani","bihar"] },
+  { id:11, name:"Kerala Kasavu Set", category:"ethnic-sets", craft:"kasavu", region:"Kerala", price:2799, original:8000, img:"img/Kerala Kasuvu.jpeg", colors:["#f5f5f5","#d4a017"], sizes:["S","M","L","XL"], rating:4.8, reviews:143, badge:"new", tags:["kasavu","kerala", "sarees"] },
+  { id:12, name:"Madhubani Art Kurti", category:"kurtas", craft:"madhubani", region:"Bihar", price:699, original:1900, img:"img/Madhubani.jpeg", colors:["#c0392b","#27ae60","#f39c12"], sizes:["S","M","L","XL","XXL"], rating:4.3, reviews:56, tags:["madhubani","bihar"] },
   { id:13, name:"Bandhani dupatta", category:"dupattas", craft:"bandhani", region:"Gujarat", price:599, original:1800, img:"img/Bandhani dupatta.png", colors:["#c0392b","#8e44ad","#e67e22"], sizes:["Free"], rating:4.5, reviews:88, tags:["bandhani","gujarat"] },
   { id:14, name:"Patola Silk Saree", category:"sarees", craft:"patola", region:"Gujarat", price:4999, original:18000, img:"img/product-14.jpg", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.9, reviews:34, badge:"bestseller", tags:["patola","silk"] },
   { id:15, name:"Rajasthani Bandhej Lehengha", category:"lehengas", craft:"bandhej", region:"Rajasthan", price:4299, original:13500, img:"img/product-15.jpg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["S","M","L","XL"], rating:4.7, reviews:61, tags:["bandhej","rajasthan"] },
   { id:16, name:"Jodhpuri Bandhgala Suit", category:"menswear", craft:"block-print", region:"Rajasthan", price:2499, original:7500, img:"img/product-16.jpg", colors:["#2c3e50","#333","#c45c2a"], sizes:["S","M","L","XL","XXL"], rating:4.8, reviews:93, badge:"new", tags:["menswear","rajasthan"] },
-  { id:17, name:"Pahadi Woolen Shawl", category:"shawls", craft:"pahadi", region:"Himachal Pradesh", price:1199, original:3600, img:"img/product-17.jpg", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.6, reviews:109, tags:["pahadi","himachal"] },
-  { id:18, name:"Warli Print Tote Bag", category:"accessories", craft:"warli", region:"Maharashtra", price:399, original:1100, img:"img/product-18.jpg", colors:["#f5f5f5","#c45c2a","#27ae60"], sizes:["Free"], rating:4.4, reviews:176, badge:"new", tags:["warli","maharashtra"] },
-  { id:19, name:"Lambani Mirror Work Blouse", category:"accessories", craft:"lambani", region:"Karnataka", price:849, original:2400, img:"img/product-19.jpg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["XS","S","M","L","XL"], rating:4.7, reviews:52, tags:["lambani","karnataka"] },
+  { id:17, name:"Pahadi Woolen Shawl", category:"shawls", craft:"pahadi", region:"Himachal Pradesh", price:1199, original:3600, img:"img/pahadi.png", colors:["#8e44ad","#c0392b","#2980b9"], sizes:["Free"], rating:4.6, reviews:109, tags:["pahadi","himachal"] },
+  { id:18, name:"Warli Print Tote Bag", category:"accessories", craft:"warli", region:"Maharashtra", price:399, original:1100, img:"img/tote.png", colors:["#f5f5f5","#c45c2a","#27ae60"], sizes:["Free"], rating:4.4, reviews:176, badge:"new", tags:["warli","maharashtra"] },
+  { id:19, name:"Bandhani Mirror Work", category:"kurtas", craft:"bandhani", region:"Gujarat", price:849, original:2400, img:"img/Mirror.jpeg", colors:["#c0392b","#8e44ad","#f39c12"], sizes:["XS","S","M","L","XL"], rating:4.7, reviews:52, tags:["bandhani","gujarat"] },
   { id:20, name:"Manipuri Phanek Sarong", category:"sarees", craft:"manipuri", region:"Manipur", price:1499, original:4200, img:"img/product-20.jpg", colors:["#c0392b","#2980b9","#27ae60"], sizes:["Free"], rating:4.5, reviews:29, tags:["manipuri","northeast"] },
-  { id:21, name:"Dabu Print Men's Kurta", category:"menswear", craft:"dabu", region:"Rajasthan", price:899, original:2600, img:"img/product-21.jpg", colors:["#2c3e50","#c45c2a","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.6, reviews:71, tags:["dabu","menswear"] },
-  { id:22, name:"Kashmiri Aari Embroidery Shawl", category:"shawls", craft:"aari", region:"Kashmir", price:2999, original:9500, img:"img/product-22.jpg", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["Free"], rating:4.9, reviews:187, badge:"bestseller", tags:["aari","kashmir"] },
-  { id:23, name:"Jamdani Cotton Saree", category:"sarees", craft:"jamdani", region:"West Bengal", price:2599, original:8000, img:"img/product-23.jpg", colors:["#f5f5f5","#2980b9","#c0392b"], sizes:["Free"], rating:4.8, reviews:63, tags:["jamdani","bengal"] },
+  { id:21, name:"Dabu Print ", category:"kurtas", craft:"dabu", region:"Rajasthan", price:899, original:2600, img:"img/Dabu.jpeg", colors:["#2c3e50","#c45c2a","#27ae60"], sizes:["S","M","L","XL","XXL"], rating:4.6, reviews:71, tags:["dabu","rajasthan"] },
+  { id:22, name:"Kashmiri Aari Embroidery Shawl", category:"shawls", craft:"aari", region:"Kashmir", price:2999, original:9500, img:"img/kashmiri.png", colors:["#c0392b","#8e44ad","#2c3e50"], sizes:["Free"], rating:4.9, reviews:187, badge:"bestseller", tags:["aari","kashmir"] },
+  { id:23, name:"Jamdani Cotton Saree", category:"sarees", craft:"jamdani", region:"West Bengal", price:2599, original:8000, img:"img/jamdani.jpeg", colors:["#f5f5f5","#2980b9","#c0392b"], sizes:["Free"], rating:4.8, reviews:63, tags:["jamdani","bengal"] },
   { id:24, name:"Tribal Dhokra Necklace", category:"accessories", craft:"dhokra", region:"Chhattisgarh", price:549, original:1500, img:"img/Tribal.jpeg", colors:["#d4a017","#c45c2a"], sizes:["Free"], rating:4.5, reviews:141, badge:"new", tags:["dhokra","tribal"] }
 ];
 
@@ -121,8 +121,26 @@ function initApp() {
   updateCartBadge();
   updateWishlistBadge();
 
-  // Sticky nav scroll
+  // ADD THIS: Listen for Enter key in search bar
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+  }
+
   window.addEventListener('scroll', handleScroll);
+}
+// Utility function to handle smooth scrolling to a specific element ID
+function smoothScroll(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    const yOffset = -120; // This matches your --nav-h in CSS
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
 }
 function handleScroll() {
   const nav = document.getElementById('navbar');
@@ -136,13 +154,17 @@ function saveToStorage() {
   localStorage.setItem('thriftx_wishlist', JSON.stringify(state.wishlist));
   localStorage.setItem('thriftx_user', JSON.stringify(state.user));
 }
-
 function loadFromStorage() {
   try {
     state.cart = JSON.parse(localStorage.getItem('thriftx_cart')) || [];
     state.wishlist = JSON.parse(localStorage.getItem('thriftx_wishlist')) || [];
-    state.user = JSON.parse(localStorage.getItem('thriftx_user')) || null;
-    if (state.user) updateAuthUI();
+    
+    // Fix: Correctly restore user session on page refresh
+    const savedUser = localStorage.getItem('thriftx_user');
+    if (savedUser && savedUser !== "null") {
+      state.user = JSON.parse(savedUser);
+      updateAuthUI(); // This ensures the name appears in the navbar immediately
+    }
   } catch(e) { console.error(e); }
 }
 
@@ -169,30 +191,90 @@ function switchAuthTab(tab) {
   document.getElementById(`${tab}-form`).classList.add('active');
 }
 
-function handleLogin() {
+// ===== AUTH FUNCTIONS =====
+
+async function handleLogin() {
   const email = document.getElementById('login-email').value;
-  const pwd = document.getElementById('login-password').value;
-  if (!email || !pwd) { showToast('Please fill in all fields', 'error'); return; }
-  // Simulate login
-  state.user = { name: email.split('@')[0], email, avatar: email.charAt(0).toUpperCase() };
-  updateAuthUI();
-  saveToStorage();
-  closeAllModals();
-  showToast(`Welcome back, ${state.user.name}! 👋`, 'success');
+  const password = document.getElementById('login-password').value;
+
+  if (!email || !password) { showToast('Please fill in all fields', 'error'); return; }
+
+  try {
+    const response = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      state.user = data.user;
+      // Save both the user info and the secure JWT token
+      localStorage.setItem('thriftx_token', data.token); 
+      localStorage.setItem('thriftx_user', JSON.stringify(data.user)); 
+      
+      updateAuthUI();
+      closeAllModals();
+      showToast(`Welcome back, ${state.user.name}! 👋`, 'success');
+    } else {
+      showToast(data.msg || 'Invalid email or password', 'error');
+    }
+  } catch (error) {
+    console.error("Login Error:", error);
+    showToast('Server is waking up... please try again in 30 seconds', 'info');
+  }
 }
 
-function handleRegister() {
+async function handleRegister() {
   const name = document.getElementById('reg-name').value;
   const email = document.getElementById('reg-email').value;
-  const pwd = document.getElementById('reg-password').value;
-  if (!name || !email || !pwd) { showToast('Please fill in all required fields', 'error'); return; }
-  state.user = { name, email, avatar: name.charAt(0).toUpperCase() };
-  updateAuthUI();
-  saveToStorage();
-  closeAllModals();
-  showToast(`Welcome to ThriftX, ${name}! 🎉 Enjoy 15% off your first order.`, 'success');
+  const password = document.getElementById('reg-password').value;
+
+  if (!name || !email || !password) { showToast('Please fill in all fields', 'error'); return; }
+
+  try {
+    const response = await fetch(`${API_URL}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      state.user = data.user;
+      localStorage.setItem('thriftx_token', data.token);
+      localStorage.setItem('thriftx_user', JSON.stringify(data.user));
+      saveToStorage(); 
+      updateAuthUI();
+      closeAllModals();
+      showToast(`Account created! Welcome to ThriftX, ${name}! 🎉`, 'success');
+    } else {
+      showToast(data.msg || 'Registration failed', 'error');
+    }
+  } catch (error) {
+    console.error("Signup Error:", error);
+    showToast('Server error. Please try again.', 'error');
+  }
 }
 
+// Added actual Logout logic
+function handleLogout() {
+  state.user = null;
+  localStorage.removeItem('thriftx_user');
+  localStorage.removeItem('thriftx_token');
+  updateAuthUI();
+  showToast('Logged out successfully. See you soon! 👋');
+}
+
+// Updated User Menu to handle Logout
+function showUserMenu() {
+  const choice = confirm(`Logged in as ${state.user.name}. \n\nDo you want to logout?`);
+  if (choice) {
+    handleLogout();
+  }
+}
 function handleGoogleAuth() {
   state.user = { name: "Google User", email: "user@gmail.com", avatar: "G" };
   updateAuthUI();
@@ -215,13 +297,6 @@ function requireAuth(callback) {
   if (!state.user) { openModal('auth-modal'); return; }
   callback();
 }
-
-function showUserMenu() {
-  // Simple dropdown-style toast for now
-  const actions = ['Profile', 'My Orders', 'Wishlist', 'Logout'];
-  showToast(`Logged in as ${state.user.name}. Use the Wishlist & Cart buttons above.`, 'info', 4000);
-}
-
 function showForgotPassword() {
   showToast('Password reset link sent to your email!', 'success');
 }
@@ -259,15 +334,53 @@ function toggleCart() {
 }
 
 function addToCart(productId, size, color) {
-  if (!state.user) { openModal('auth-modal'); return; }
+  // 1. Security Check: Only logged-in users can add to cart
+  if (!state.user) { 
+    showToast('Please login to add items to your cart 🛍️', 'info');
+    openModal('auth-modal'); 
+    return; 
+  }
+
+  // 2. Find the product in your database
   const product = PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-  const sz = size || product.sizes[0];
-  const existing = state.cart.find(i => i.id === productId && i.size === sz);
-  if (existing) existing.qty++;
-  else state.cart.push({ ...product, qty: 1, size: sz, color: color || product.colors[0] });
+  if (!product) {
+    showToast('Product could not be found', 'error');
+    return;
+  }
+
+  // 3. Handle defaults for Size and Color
+  const selectedSize = size || (product.sizes && product.sizes.length > 0 ? product.sizes[0] : 'Free');
+  const selectedColor = color || (product.colors && product.colors.length > 0 ? product.colors[0] : '#000');
+
+  // 4. Check if the exact same item (same size/color) is already in the cart
+  const existingItem = state.cart.find(item => 
+    item.id === productId && 
+    item.size === selectedSize && 
+    item.color === selectedColor
+  );
+
+  if (existingItem) {
+    // If it exists, just increase the quantity
+    existingItem.qty++;
+  } else {
+    // If it's new, add it with specific cart properties
+    state.cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      img: product.img,
+      craft: product.craft,
+      size: selectedSize,
+      color: selectedColor,
+      qty: 1
+    });
+  }
+
+  // 5. Update Storage and UI
   saveToStorage();
   updateCartBadge();
+  
+  // 6. Success Feedback
   showToast(`${product.name} added to cart! 🛒`, 'success');
 }
 
@@ -417,16 +530,21 @@ function handleSearch(query) {
 function performSearch() {
   const query = document.getElementById('search-input').value.trim();
   if (!query) return;
+
   state.filteredProducts = PRODUCTS.filter(p =>
     p.name.toLowerCase().includes(query.toLowerCase()) ||
     p.craft.toLowerCase().includes(query.toLowerCase()) ||
     p.region.toLowerCase().includes(query.toLowerCase()) ||
     p.category.toLowerCase().includes(query.toLowerCase())
   );
-  clearSearch();
+
+  clearSearch(); // Hides the suggestions dropdown
   state.currentPage = 1;
   renderProducts();
-  smoothScroll('products-section');
+  
+  // This now works because we defined the function above
+  smoothScroll('products-section'); 
+  
   document.getElementById('product-count').textContent = `Found ${state.filteredProducts.length} results for "${query}"`;
 }
 

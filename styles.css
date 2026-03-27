@@ -316,6 +316,30 @@ input, select, textarea { font-family: inherit; }
   color: var(--text2); font-size: 0.7rem; cursor: pointer;
   transition: var(--transition); position: relative; background: none;
 }
+/* ===== FIX BROWSER AUTOFILL COLORS ===== */
+
+/* This targets the input when the browser "fills" it with saved data */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    /* This overrides the white background with your dark surface color */
+    -webkit-box-shadow: 0 0 0 1000px var(--surface2) inset !important;
+    
+    /* This ensures the text stays your cream/gold color */
+    -webkit-text-fill-color: var(--text) !important;
+    
+    /* This makes sure the border stays consistent */
+    border: 1px solid var(--border2) !important;
+    
+    /* Optional: sets a transition so it doesn't flicker white on load */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Specific fix for the search bar which has a different background */
+#search-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--surface2) inset !important;
+}
 .nav-icon-btn:hover { color: var(--gold); background: var(--surface2); }
 .nav-icon-btn > span:first-child { font-size: 1.2rem; }
 .nav-label { font-size: 0.65rem; letter-spacing: 0.5px; }
