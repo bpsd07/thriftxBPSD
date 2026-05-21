@@ -158,9 +158,9 @@ Through this project, I strengthened my understanding of:
 
 **BHANU PRATAP SINGH DEO**
 
-* GitHub: [bpsd07 GitHub](https://github.com/bpsd07?utm_source=chatgpt.com)
-* Project Repository: [ThriftX Repository](https://github.com/bpsd07/thriftxBPSD?utm_source=chatgpt.com)
-* LinkedIn: [Bhanu Pratap Singh Deo LinkedIn](https://www.linkedin.com/in/bhanu-pratap-singh-deo?utm_source=chatgpt.com)
+* GitHub: [bpsd07 GitHub](https://github.com/bpsd07)
+* Project Repository: [ThriftX Repository](https://github.com/bpsd07/thriftxBPSD)
+* LinkedIn: [Bhanu Pratap Singh Deo LinkedIn](https://www.linkedin.com/in/bhanu-pratap-singh-deo-a494672b3/?skipRedirect=true)
 
 ---
 
